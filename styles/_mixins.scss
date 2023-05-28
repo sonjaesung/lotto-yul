@@ -1,0 +1,37 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+@function px-to-rem($px) {
+  @return (($px) / $root_font_size) + rem;
+}
+
+@mixin font-rem(
+  $fontSize,
+  $fontColor: #000,
+  $lineHeight: $fontSize,
+  $fontWeight: 600,
+  $fontStyle: normal,
+  $fontFamily: $font1
+) {
+  font-size: px-to-rem($fontSize);
+  color: $fontColor;
+  line-height: px-to-rem($lineHeight);
+  font-weight: $fontWeight;
+  font-style: $fontStyle;
+  font-family: $fontFamily;
+}
+
+@mixin breakpoint($point) {
+  @if $point == mobile {
+    @media (min-width: 280px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media all and (min-width: 768px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == pc {
+    @media all and (min-width: 1200px) {
+      @content;
+    }
+  }
+}

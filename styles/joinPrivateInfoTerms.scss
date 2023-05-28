@@ -1,0 +1,236 @@
+.join_private_area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.join_sec1,
+.join_sec2,
+.join_sec3 {
+    white-space: pre-line;
+    width: px-to-rem(1200);
+    word-break: break-all;
+
+    ol {
+        padding: 0;
+        margin-left: px-to-rem(40);
+    }
+
+    h3 {
+        margin: 0;
+    }
+}
+
+.join_sec1 {
+    margin-top: px-to-rem(148);
+
+    .title {
+        @include font-rem(50, $main_nab_color, 50, 800);
+        text-align: center
+    }
+
+    .content {
+        @include font-rem(28, #777C81, 40, 500);
+        margin-top: px-to-rem(72);
+    }
+}
+
+.join_sec2 {
+    .joinPrivateInfoTerms {
+        @include font-rem(38, #777C81, 40);
+        margin-top: 0
+    }
+
+    .main_title {
+        @include font-rem(38, #777C81, 40);
+        margin-top: px-to-rem(88);
+    }
+
+    .sub_title {
+        @include font-rem(28, #777C81, 40, 500);
+        margin-top: px-to-rem(22);
+
+        ol {
+            margin-bottom: px-to-rem(50);
+
+            li {
+                margin-top: px-to-rem(43);
+            }
+        }
+
+        ul {
+            @include font-rem(28, #777C81, 40, 500);
+        }
+    }
+
+    .defaultTb {
+        margin: px-to-rem(18) 0;
+        border-top: 2px solid #7E8086;
+        border-bottom: 1px solid #7E8086;
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        box-sizing: border-box;
+        text-align: center;
+
+        caption {
+            width: 0;
+            height: 0;
+            visibility: hidden;
+            text-indent: -9999px;
+            font-size: 0;
+            line-height: 0;
+        }
+
+        th {
+            background: #F2F4F6;
+            border-bottom: 1px solid #7E8086;
+            border-left: 1px solid #7E8086;
+            @include font-rem(24, #777C81, 40, 500);
+
+
+            &:first-child {
+                border-left: none;
+            }
+        }
+
+        td {
+            border-left: 1px solid #7E8086;
+            border-top: 1px solid #7E8086;
+            @include font-rem(22, #777C81, 32, 500);
+
+            &.borderNoneLeft {
+                border-left: none;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+        @include font-rem(28, #777C81, 40, 500);
+    }
+}
+
+.join_sec3 {
+    margin-top: px-to-rem(78);
+    margin-bottom: px-to-rem(150);
+    @include font-rem(28, #777C81, 40, 500);
+}
+
+@include breakpoint("tablet") {
+
+    .join_sec1,
+    .join_sec2,
+    .join_sec3 {
+        width: px-to-rem(768);
+
+        ol {
+            margin-left: px-to-rem(30);
+        }
+    }
+
+    .join_sec1 {
+        .title {
+            @include font-rem(37, $main_nab_color, 37, 800);
+        }
+
+        .content {
+            @include font-rem(21, #777C81, 30, 500);
+        }
+    }
+
+    .join_sec2 {
+        .joinPrivateInfoTerms {
+            @include font-rem(28, #777C81, 30);
+        }
+
+        .main_title {
+            @include font-rem(28, #777C81, 30);
+        }
+
+        .sub_title {
+            @include font-rem(21, #777C81, 30, 500);
+
+            ul {
+                @include font-rem(21, #777C81, 30, 500);
+            }
+        }
+
+        .defaultTb {
+            th {
+                @include font-rem(18, #777C81, 30, 500);
+            }
+
+            td {
+                @include font-rem(16, #777C81, 24, 500);
+            }
+        }
+
+        a {
+            @include font-rem(21, #777C81, 30, 500);
+        }
+    }
+
+    .join_sec3 {
+        @include font-rem(21, #777C81, 30, 500);
+    }
+}
+
+@include breakpoint("mobile") {
+
+    .join_sec1,
+    .join_sec2,
+    .join_sec3 {
+        width: px-to-rem(360);
+
+        ol {
+            margin-left: px-to-rem(20);
+        }
+    }
+
+    .join_sec1 {
+        .title {
+            @include font-rem(25, $main_nab_color, 25, 800);
+        }
+
+        .content {
+            @include font-rem(14, #777C81, 20, 500);
+        }
+    }
+
+    .join_sec2 {
+        .joinPrivateInfoTerms {
+            @include font-rem(19, #777C81, 20);
+        }
+
+        .main_title {
+            @include font-rem(19, #777C81, 20);
+        }
+
+        .sub_title {
+            @include font-rem(14, #777C81, 20, 500);
+
+            ul {
+                @include font-rem(14, #777C81, 20, 500);
+            }
+        }
+
+        .defaultTb {
+            th {
+                @include font-rem(12, #777C81, 20, 500);
+            }
+
+            td {
+                @include font-rem(11, #777C81, 16, 500);
+            }
+        }
+
+        a {
+            @include font-rem(14, #777C81, 20, 500);
+        }
+    }
+
+    .join_sec3 {
+        @include font-rem(14, #777C81, 20, 500);
+    }
+}

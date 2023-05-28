@@ -1,0 +1,34 @@
+node   {
+        registry = "qwxt1jsj.kr.private-ncr.ntruss.com/bc-landingpage"
+        path = "mkdir -p $HOME/bin && cp ./ncp-iam-authenticator $HOME/bin/ncp-iam-authenticator && export PATH=$PATH:$HOME/bin"
+        kubeconfig = "--kubeconfig=/home/kubeconfig.yaml"
+       
+        stage('Clone Repository') {
+            checkout scm
+                }
+
+        stage('Data Copy') {
+            sh 'sh /home/docker_service/bc.landingpage/bootjar.sh'
+                }
+  
+        stage('Docker Build Image') {
+            sh 'sh /home/docker_service/bc.landingpage/docker.build.sh'
+                }
+
+        stage('Docker Login & Container Push Image') {
+            docker.withRegistry('https://qwxt1jsj.kr.private-ncr.ntruss.com', 'docker-register-login') {
+                docker.image("$registry:latest").push()
+                 /* sh 'docker push qwxt1jsj.kr.private-ncr.ntruss.com/test:latest' */
+                 /* app.push("${env.BUILD_NUMBER}")
+                    app.push("qwxt1jsj.kr.private-ncr.ntruss.com/test:latest") */
+                }
+             
+        stage('Kubernetes Deploy') {
+            sh "cd ~ && $path && kubectl $kubeconfig apply -f /home/kuber_service/bc.landingpage/landingpage.yaml"
+                }
+        
+        stage('Kubernetes Update') {
+            sh "cd ~ && $path && kubectl $kubeconfig rollout restart deploy bc-landingpage -n baecomm"
+                }
+        }
+}

@@ -1,0 +1,59 @@
+html {
+  margin: 0;
+  @include font-rem($root_font_size);
+}
+
+body {
+  width: 100%;
+  margin: 0;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: unset;
+}
+
+.content_area {
+  margin-top: px-to-rem(120);
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bg {
+  pointer-events: none;
+}
+
+@include breakpoint("tablet") {
+  html {
+    min-width: px-to-rem(768);
+  }
+
+  .content {
+    width: 100%;
+    min-width: px-to-rem(768);
+  }
+}
+
+@include breakpoint("pc") {
+  html {
+    min-width: px-to-rem(1200);
+  }
+
+  .content {
+    width: 100%;
+    min-width: px-to-rem(1200);
+  }
+}
+
+@import "header", "footer", "home", "info", "policy", "support", "blog", "popup", "joinPrivateInfoTerms";

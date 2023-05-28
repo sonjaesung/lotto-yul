@@ -1,0 +1,145 @@
+.lotto_count_area {
+  text-align: center;
+
+  .title {
+    margin: auto;
+    background: linear-gradient(83.66deg, #33cc33 14.54%, #3438ff 109.91%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    font-size: px-to-rem(50);
+    line-height: px-to-rem(65);
+    width: fit-content;
+    margin-bottom: px-to-rem(20);
+  }
+
+  .section1 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: px-to-rem(120);
+  }
+
+  .table_slot {
+    width: px-to-rem(110);
+    border: 1px solid gray;
+    box-sizing: border-box;
+    margin-top: px-to-rem(10);
+  }
+
+  .table_key,
+  .table_count {
+    width: 100%;
+    padding: px-to-rem(10) 0;
+  }
+
+  .table_count {
+    border-top: 1px solid gray;
+    box-sizing: border-box;
+  }
+}
+
+.lotto_info_area {
+  text-align: center;
+
+  .title {
+    margin: auto;
+    background: linear-gradient(83.66deg, #33cc33 14.54%, #3438ff 109.91%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    font-size: px-to-rem(50);
+    line-height: px-to-rem(65);
+    width: fit-content;
+    margin-bottom: px-to-rem(20);
+  }
+
+  .section1 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: px-to-rem(120);
+  }
+
+  .table_slot {
+    width: 100%;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    margin: px-to-rem(10);
+  }
+
+  .table_turn,
+  .table_key_list,
+  .table_total_reward {
+    width: 100%;
+    padding: px-to-rem(10) 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .table_key_list,
+  .table_total_reward {
+    border-top: 1px solid gray;
+    box-sizing: border-box;
+  }
+
+  .left {
+    width: 20%;
+    box-sizing: border-box;
+  }
+
+  .right {
+    width: 80%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .number_circle {
+    border-radius: 50px;
+    border: 1px solid gray;
+    width: px-to-rem(26);
+    height: px-to-rem(26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:nth-child(1) {
+      margin-left: px-to-rem(10);
+    }
+
+    &:last-child {
+      margin-right: px-to-rem(10);
+    }
+
+    &.plus {
+      border: none;
+    }
+
+    &[data-color='#f2b720'] {
+      background-color: #f2b720;
+    }
+
+    &[data-color='#4072ac'] {
+      background-color: #4072ac;
+    }
+
+    &[data-color='#de4c0e'] {
+      background-color: #de4c0e;
+    }
+
+    &[data-color='#9195a4'] {
+      background-color: #9195a4;
+    }
+
+    &[data-color='#13be4b'] {
+      background-color: #13be4b;
+    }
+  }
+}
+
+@include breakpoint("tablet") {}
+
+@include breakpoint("pc") {}

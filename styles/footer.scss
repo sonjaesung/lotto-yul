@@ -1,0 +1,260 @@
+.footer_area {
+  width: 100%;
+  height: px-to-rem($footer_height);
+  position: relative;
+
+  .bg {
+    background-color: $main_nab_color;
+    width: 100%;
+    height: px-to-rem($footer_height);
+    position: absolute;
+    z-index: -1;
+    top: 0;
+  }
+
+  .content {
+    width: px-to-rem(1200);
+  }
+
+  .footer_top {
+    width: 100%;
+    padding-top: px-to-rem(101);
+  }
+
+  .footer_menu_area {
+    display: flex;
+  }
+
+  .footer_des {
+    @include font-rem(18, #fff, 22, 700);
+  }
+
+  .footer_title {
+    @include font-rem(32, #fff, 22, 700);
+    margin-top: px-to-rem(9);
+  }
+
+  .menu_area {
+    &.Introduce {
+      margin-left: px-to-rem(635);
+      width: px-to-rem(180);
+    }
+
+    &.Blog {
+      margin-left: px-to-rem(24);
+    }
+  }
+
+  .menu_title {
+    @include font-rem(16, #fff, 24, 700);
+  }
+
+  .slot {
+    display: flex;
+    flex-direction: column;
+    margin-top: px-to-rem(11);
+
+    a {
+      @include font-rem(14, #fff, 27, 500);
+      width: fit-content;
+    }
+  }
+
+  .icon {
+    width: px-to-rem(36);
+    height: px-to-rem(36);
+
+    &.instagram {
+      margin-right: px-to-rem(6);
+    }
+  }
+
+  .footer_bottom {
+    margin-top: px-to-rem(33);
+    border-top: px-to-rem(1) solid #fff;
+    padding-top: px-to-rem(53);
+    @include font-rem(14, #fff, 24, 400);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer_icon_area {
+    display: flex;
+  }
+
+  .personal_info {
+    @include font-rem(14, #fff, 24, 700);
+    text-decoration: none;
+  }
+}
+
+@include breakpoint("mobile") {
+  .footer_area {
+    height: px-to-rem(220);
+
+    .bg {
+      height: px-to-rem(220);
+    }
+
+    .content {
+      width: 100%;
+    }
+
+    .footer_top {
+      padding-top: px-to-rem(40);
+    }
+
+    .footer_menu_area {
+      flex-direction: column;
+    }
+
+    .footer_des {
+      @include font-rem(12, #fff, 18, 700);
+      margin-left: px-to-rem(20);
+    }
+
+    .footer_title {
+      @include font-rem(20, #fff, 22, 700);
+      margin-top: px-to-rem(5);
+      margin-left: px-to-rem(20);
+    }
+
+    .menu_area {
+      &.Introduce {
+        margin-left: px-to-rem(20);
+        width: px-to-rem(180);
+      }
+
+      &.Blog {
+        margin-left: px-to-rem(20);
+      }
+    }
+
+    .menu_title {
+      @include font-rem(16, #fff, 24, 700);
+      margin-top: px-to-rem(28);
+    }
+
+    .slot {
+      margin-top: px-to-rem(11);
+      height: px-to-rem(54);
+      display: flex;
+      flex-wrap: wrap;
+
+      a {
+        @include font-rem(12, #fff, 18, 400);
+        width: px-to-rem(152);
+
+        &:nth-child(2) {
+          margin-top: px-to-rem(16);
+        }
+
+        &:nth-child(3) {
+          margin-left: px-to-rem(16);
+        }
+
+        &:nth-child(4) {
+          margin-left: px-to-rem(16);
+          margin-top: px-to-rem(16);
+        }
+      }
+    }
+
+    .footer_bottom {
+      margin-top: px-to-rem(28);
+      border-top: px-to-rem(1) solid #fff;
+      padding-top: px-to-rem(20);
+      @include font-rem(10, #fff, 16, 400);
+      margin-left: px-to-rem(20);
+      margin-right: px-to-rem(20);
+    }
+
+    .personal_info {
+      @include font-rem(10, #fff, 16, 400);
+      text-decoration: none;
+    }
+  }
+}
+
+@include breakpoint("tablet") {
+  .footer_area {
+    height: px-to-rem(550);
+
+    .bg {
+      height: px-to-rem(550);
+    }
+
+    .content {
+      width: 100%;
+    }
+
+    .footer_top {
+      padding-top: px-to-rem(64);
+    }
+
+    .footer_title_area {
+      width: 100%;
+    }
+
+    .footer_menu_area {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .footer_des {
+      @include font-rem(18, #fff, 22, 700);
+      margin-left: px-to-rem(24);
+    }
+
+    .footer_title {
+      @include font-rem(32, #fff, 22, 700);
+      margin-top: px-to-rem(9);
+      margin-left: px-to-rem(24);
+    }
+
+    .menu_area {
+      flex-direction: row;
+
+      &.Introduce {
+        margin-left: px-to-rem(24);
+        width: px-to-rem(370);
+      }
+
+      &.Blog {
+        margin-left: px-to-rem(24);
+        width: px-to-rem(258);
+      }
+    }
+
+    .menu_title {
+      @include font-rem(16, #fff, 24, 700);
+      margin-top: px-to-rem(37);
+    }
+
+    .slot {
+      margin-top: px-to-rem(11);
+      height: px-to-rem(54);
+      display: flex;
+      flex-wrap: wrap;
+
+      a {
+        @include font-rem(14, #fff, 22, 400);
+        width: px-to-rem(152);
+      }
+    }
+
+    .footer_bottom {
+      margin-top: px-to-rem(28);
+      border-top: px-to-rem(1) solid #fff;
+      padding-top: px-to-rem(47);
+      @include font-rem(14, #fff, 24, 400);
+      margin-left: px-to-rem(20);
+      margin-right: px-to-rem(20);
+    }
+
+    .personal_info {
+      @include font-rem(14, #fff, 24, 400);
+      text-decoration: none;
+    }
+  }
+}
