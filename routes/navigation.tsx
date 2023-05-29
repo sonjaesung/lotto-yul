@@ -6,16 +6,18 @@ export const navigation = [
     matchUrl: ["/info"],
     menu: "Info",
     subnav: [
-      { url: "/info/winCount", name: "당첨 번호 회수", desc: "당첨 번호 회수" },
       { url: "/info/winTurn", name: "당첨 회차 정보", desc: "당첨 회차 정보" },
     ],
   },
   {
-    title: "요금 정책",
-    desc: "요금 정책",
-    url: "/policy",
-    matchUrl: ["/policy"],
-    menu: "Policy",
+    title: "로또 분석",
+    desc: "로또 분석",
+    url: "/analyze",
+    matchUrl: ["/analyze"],
+    menu: "Analyze",
+    subnav: [
+      { url: "/analyze/winCount", name: "당첨 번호 분석", desc: "당첨 번호 분석" },
+    ],
   },
   {
     title: "고객 지원",

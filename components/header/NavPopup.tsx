@@ -20,7 +20,7 @@ const NavPopup = observer(() => {
               <div className="subNab_M">
                 {item.subnav.map((sub, index) => {
                   return (
-                    <div className="sub_text_area" key={index}>
+                    <div className="sub_text_area" key={index} onClick={() => mainStore.changeMenuPopup(false)}>
                       <Link href={sub.url}>{sub.name}</Link>
                     </div>
                   );

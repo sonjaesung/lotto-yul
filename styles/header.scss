@@ -6,7 +6,7 @@
   z-index: 20;
 
   .bg {
-    background: linear-gradient(90.1deg, #33cc33 0%, #3438ff 104.76%);
+    background: #fff;
     width: 100%;
     height: px-to-rem(60);
     position: absolute;
@@ -26,6 +26,11 @@
     background-repeat: no-repeat;
     margin-top: px-to-rem(20);
     @include font-rem(20, #fff, 20);
+    background: linear-gradient(83.66deg, #33cc33 14.54%, #3438ff 109.91%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
   }
 
   .nav_area {
@@ -143,6 +148,8 @@
 
   .banner_title {
     @include font-rem(18, #fff, 22, 700);
+    display: flex;
+    align-items: center;
   }
 
   .banner_btn {
@@ -157,6 +164,48 @@
     @include font-rem(16, #3474ae, 19, 700);
     margin-left: px-to-rem(10);
     z-index: 10;
+  }
+
+  .number_circle {
+    border-radius: 50px;
+    border: 1px solid gray;
+    width: px-to-rem(26);
+    height: px-to-rem(26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:nth-child(1) {
+      margin-left: px-to-rem(10);
+    }
+
+    &:last-child {
+      margin-right: px-to-rem(10);
+    }
+
+    &.plus {
+      border: none;
+    }
+
+    &[data-color='#f2b720'] {
+      background-color: #f2b720;
+    }
+
+    &[data-color='#4072ac'] {
+      background-color: #4072ac;
+    }
+
+    &[data-color='#de4c0e'] {
+      background-color: #de4c0e;
+    }
+
+    &[data-color='#9195a4'] {
+      background-color: #9195a4;
+    }
+
+    &[data-color='#13be4b'] {
+      background-color: #13be4b;
+    }
   }
 }
 
@@ -195,7 +244,7 @@
     min-width: px-to-rem(360);
 
     .banner_title {
-      @include font-rem(14, #fff, 17, 700);
+      @include font-rem(14, #fff, 14, 700);
     }
 
     .banner_btn {

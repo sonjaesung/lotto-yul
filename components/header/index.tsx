@@ -4,10 +4,10 @@ import NavBar from "./NavBar";
 import Seo from "./Seo";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
-import Img from "../common/Img";
 import NavBarM from "./NavBarM";
 import { observer } from "mobx-react";
 import mainStore from "@/store/mainStore";
+import Banner from "./Banner";
 
 const metaList = {
   home: {
@@ -95,6 +95,7 @@ const Header = observer(() => {
           )}
         </div>
       </div>
+      <Banner />
     </Fragment>
   );
 });

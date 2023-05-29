@@ -32,6 +32,7 @@ const WinTurn = observer(({ lotoList }: props) => {
             mainStore.setAllList(item.drwtNo3);
             mainStore.setAllList(item.drwtNo4);
             mainStore.setAllList(item.drwtNo5);
+            mainStore.setAllList(item.drwtNo6);
             mainStore.setAllList(item.bnusNo);
         })
 
@@ -69,9 +70,12 @@ const WinTurn = observer(({ lotoList }: props) => {
                                 <div className="number_circle" data-color={Object(mainStore.allList)[item.drwtNo5].color}>
                                     <div className="text">{item.drwtNo5}</div>
                                 </div>
-                                <div className="number_circle plus"><div className="text">+</div></div>
-                                <div className="number_circle bonus" data-color={Object(mainStore.allList)[item.drwtNo6].color}>
+                                <div className="number_circle" data-color={Object(mainStore.allList)[item.drwtNo6].color}>
                                     <div className="text">{item.drwtNo6}</div>
+                                </div>
+                                <div className="number_circle plus"><div className="text">+</div></div>
+                                <div className="number_circle bonus" data-color={Object(mainStore.allList)[item.bnusNo].color}>
+                                    <div className="text">{item.bnusNo}</div>
                                 </div>
                             </div>
                         </div>

@@ -281,6 +281,56 @@ class MainStore {
     }
   };
   setAllList = (val: number) => Object(this.allList)[val].count++;
+
+  currentLotto: {
+    totSellamnt: number,
+    returnValue: String,
+    drwNoDate: String,
+    firstWinamnt: number,
+    drwtNo6: number,
+    drwtNo4: number,
+    firstPrzwnerCo: number,
+    drwtNo5: number,
+    bnusNo: number,
+    firstAccumamnt: number,
+    drwNo: number,
+    drwtNo2: number,
+    drwtNo3: number,
+    drwtNo1: number
+  } = {
+      totSellamnt: 0,
+      returnValue: '',
+      drwNoDate: '',
+      firstWinamnt: 0,
+      drwtNo6: 0,
+      drwtNo4: 0,
+      firstPrzwnerCo: 0,
+      drwtNo5: 0,
+      bnusNo: 0,
+      firstAccumamnt: 0,
+      drwNo: 0,
+      drwtNo2: 0,
+      drwtNo3: 0,
+      drwtNo1: 0
+    }
+  setCurrentLotto = (val: {
+    totSellamnt: number,
+    returnValue: String,
+    drwNoDate: String,
+    firstWinamnt: number,
+    drwtNo6: number,
+    drwtNo4: number,
+    firstPrzwnerCo: number,
+    drwtNo5: number,
+    bnusNo: number,
+    firstAccumamnt: number,
+    drwNo: number,
+    drwtNo2: number,
+    drwtNo3: number,
+    drwtNo1: number
+  }) => {
+    this.currentLotto = val;
+  }
 }
 
 const mainStore = new MainStore();

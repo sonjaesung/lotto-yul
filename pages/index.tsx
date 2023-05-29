@@ -1,9 +1,35 @@
 import { useEffect } from "react";
 import { observer } from "mobx-react";
 import mainStore from "@/store/mainStore";
+import { GetServerSideProps } from "next";
+import moment from "moment";
 
-const Home = observer(() => {
+type lotoData = {
+  totSellamnt: number,
+  returnValue: String,
+  drwNoDate: String,
+  firstWinamnt: number,
+  drwtNo6: number,
+  drwtNo4: number,
+  firstPrzwnerCo: number,
+  drwtNo5: number,
+  bnusNo: number,
+  firstAccumamnt: number,
+  drwNo: number,
+  drwtNo2: number,
+  drwtNo3: number,
+  drwtNo1: number
+}
+
+type props = {
+  data: lotoData;
+}
+
+
+const Home = observer(({ data }: props) => {
   useEffect(() => {
+    mainStore.setCurrentLotto(data);
+
     window.addEventListener("resize", mainStore.changePcResize);
     return () => {
       window.removeEventListener("resize", mainStore.changePcResize);
@@ -34,5 +60,21 @@ const Home = observer(() => {
     </div>
   );
 });
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const t1 = moment('20021207');
+  const t2 = moment();
+  const dff = moment.duration(t2.diff(t1)).asDays();
+  const currentTurn = Math.floor(dff / 7) + 1;
+
+  const res = await fetch(`https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=${currentTurn}`);
+  const data = await res.json();
+
+  return {
+    props: {
+      data,
+    },
+  }
+};
 
 export default Home;
