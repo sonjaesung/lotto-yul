@@ -71,6 +71,13 @@ const Header = observer(() => {
     return Object(metaList)[pathKey].des;
   };
 
+  useEffect(() => {
+    window.addEventListener("resize", mainStore.changePcResize);
+    return () => {
+      window.removeEventListener("resize", mainStore.changePcResize);
+    };
+  }, []);
+
   return (
     <Fragment>
       <div className="header_area">

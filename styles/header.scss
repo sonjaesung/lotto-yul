@@ -308,15 +308,6 @@
       }
     }
 
-    .nav_btn_area {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      margin-top: px-to-rem(40);
-      margin-left: px-to-rem(24);
-      margin-right: px-to-rem(24);
-    }
-
     .nav_free_use_btn,
     .nav_login_btn {
       width: 100%;
@@ -451,15 +442,6 @@
       &:nth-child(4) {
         margin-top: px-to-rem(17);
       }
-    }
-
-    .nav_btn_area {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      margin-top: px-to-rem(54);
-      margin-left: px-to-rem(24);
-      margin-right: px-to-rem(24);
     }
 
     .nav_free_use_btn,

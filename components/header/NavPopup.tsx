@@ -48,10 +48,6 @@ const NavPopup = observer(() => {
           );
         }
       })}
-      <div className="nav_btn_area">
-        <button className="nav_free_use_btn">무료로 사용해보기</button>
-        <button className="nav_login_btn">로그인</button>
-      </div>
     </div>
   );
 });

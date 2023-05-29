@@ -31,8 +31,8 @@ class MainStore {
 
   getOsAndResizeCheck = () => {
     return (
-      this.mobileCheck ||
-      this.tabletCheck ||
+      isMobile ||
+      isTablet ||
       this.pcResize === "tablet" ||
       this.pcResize === "mobile"
     );
