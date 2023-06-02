@@ -53,7 +53,7 @@ class MainStore {
     this.joinPopupCheck = val;
   };
 
-  allList: object = {
+  lotoForm: object = {
     1: {
       key: 1,
       count: 0,
@@ -280,7 +280,6 @@ class MainStore {
       color: '#13be4b'
     }
   };
-  setAllList = (val: number) => Object(this.allList)[val].count++;
 
   currentLotto: {
     totSellamnt: number,
@@ -331,6 +330,7 @@ class MainStore {
   }) => {
     this.currentLotto = val;
   }
+
 }
 
 const mainStore = new MainStore();

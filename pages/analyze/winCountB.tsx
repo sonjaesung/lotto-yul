@@ -1,26 +1,9 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { observer } from "mobx-react";
 import mainStore from "@/store/mainStore";
 import { GetServerSideProps } from "next";
 
 type lotoData = {
-    totSellamnt: number,
-    returnValue: String,
-    drwNoDate: String,
-    firstWinamnt: number,
-    drwtNo6: number,
-    drwtNo4: number,
-    firstPrzwnerCo: number,
-    drwtNo5: number,
-    bnusNo: number,
-    firstAccumamnt: number,
-    drwNo: number,
-    drwtNo2: number,
-    drwtNo3: number,
-    drwtNo1: number
-}
-
-type allListData = {
     1: {
         key: number,
         count: number,
@@ -249,11 +232,10 @@ type allListData = {
 }
 
 type props = {
-    lotoList: lotoData[];
-    allList: allListData;
+    bnusNumberList: lotoData
 }
 
-const WinTurn = observer(({ lotoList, allList }: props) => {
+const WinCountB = observer(({ bnusNumberList }: props) => {
     useEffect(() => {
         window.addEventListener("resize", mainStore.changePcResize);
         return () => {
@@ -262,46 +244,15 @@ const WinTurn = observer(({ lotoList, allList }: props) => {
     }, []);
 
     return (
-        <div className="lotto_info_area">
-            <div className="title">당첨 회차 정보</div>
+        <div className="lotto_count_area">
+            <div className="title">보너스 번호 회수</div>
             <div className="section1">
-                {lotoList.map((item, idx) => {
+                {Object.keys(bnusNumberList).sort((a, b) => {
+                    return Object(bnusNumberList)[b].count - Object(bnusNumberList)[a].count;
+                }).map((item, idx) => {
                     return <div key={idx} className="table_slot">
-                        <div className="table_turn">
-                            <div className="left">회차</div>
-                            <div className="right">{item.drwNo}</div>
-                        </div>
-                        <div className="table_key_list">
-                            <div className="left">당첨 번호</div>
-                            <div className="right">
-                                <div className="number_circle" data-color={Object(allList)[item.drwtNo1].color}>
-                                    <div className="text">{item.drwtNo1}</div>
-                                </div>
-                                <div className="number_circle" data-color={Object(allList)[item.drwtNo2].color}>
-                                    <div className="text">{item.drwtNo2}</div>
-                                </div>
-                                <div className="number_circle" data-color={Object(allList)[item.drwtNo3].color}>
-                                    <div className="text">{item.drwtNo3}</div>
-                                </div>
-                                <div className="number_circle" data-color={Object(allList)[item.drwtNo4].color}>
-                                    <div className="text">{item.drwtNo4}</div>
-                                </div>
-                                <div className="number_circle" data-color={Object(allList)[item.drwtNo5].color}>
-                                    <div className="text">{item.drwtNo5}</div>
-                                </div>
-                                <div className="number_circle" data-color={Object(allList)[item.drwtNo6].color}>
-                                    <div className="text">{item.drwtNo6}</div>
-                                </div>
-                                <div className="number_circle plus"><div className="text">+</div></div>
-                                <div className="number_circle bonus" data-color={Object(allList)[item.bnusNo].color}>
-                                    <div className="text">{item.bnusNo}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="table_total_reward">
-                            <div className="left">당첨 금액</div>
-                            <div className="right">{item.totSellamnt.toLocaleString()} 원</div>
-                        </div>
+                        <div className="table_key">{Object(bnusNumberList)[item].key} 번</div>
+                        <div className="table_count">{Object(bnusNumberList)[item].count}</div>
                     </div>
                 })}
             </div>
@@ -312,7 +263,7 @@ const WinTurn = observer(({ lotoList, allList }: props) => {
 export const getServerSideProps: GetServerSideProps = async () => {
     let lotoList = [];
     let turn = 1;
-    let allList: object = {
+    let bnusNumberList: object = {
         1: {
             key: 1,
             count: 0,
@@ -539,7 +490,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
             color: '#13be4b'
         }
     };
-    const setAllList = (val: number) => Object(allList)[val].count++;
+
+    const setBnusNumberList = (val: number) => Object(bnusNumberList)[val].count++;
 
     while (true) {
         const res = await fetch(`https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=${turn}`);
@@ -556,21 +508,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
     lotoList.sort().reverse();
 
     lotoList.map(item => {
-        setAllList(item.drwtNo1);
-        setAllList(item.drwtNo2);
-        setAllList(item.drwtNo3);
-        setAllList(item.drwtNo4);
-        setAllList(item.drwtNo5);
-        setAllList(item.drwtNo6);
-        setAllList(item.bnusNo);
+        setBnusNumberList(item.bnusNo);
     })
 
     return {
         props: {
-            lotoList,
-            allList,
+            bnusNumberList,
         },
     }
 };
 
-export default WinTurn;
+export default WinCountB;

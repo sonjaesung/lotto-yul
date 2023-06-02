@@ -16,7 +16,8 @@ export const navigation = [
     matchUrl: ["/analyze"],
     menu: "Analyze",
     subnav: [
-      { url: "/analyze/winCount", name: "당첨 번호 분석", desc: "당첨 번호 분석" },
+      { url: "/analyze/winCount", name: "1등 번호 회수", desc: "1등 번호 회수 (보너스 번호 제외)" },
+      { url: "/analyze/winCountB", name: "보너스 번호 회수", desc: "보너스 번호 회수" },
     ],
   }
 ];
