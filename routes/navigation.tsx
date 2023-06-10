@@ -7,6 +7,7 @@ export const navigation = [
     menu: "Info",
     subnav: [
       { url: "/info/winTurn", name: "당첨 회차 정보", desc: "당첨 회차 정보" },
+      { url: "/info/winByYear", name: "연도별 당첨 정보", desc: "연도별 당첨 정보" },
     ],
   },
   {
